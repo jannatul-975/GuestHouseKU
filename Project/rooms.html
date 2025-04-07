@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Room Entry Form - Khulna University Guest House</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="rooms.css" />
+  </head>
+  <body>
+    <h2>Add New Room</h2>
+
+    <form id="roomForm">
+      <label for="roomNo">Room No:</label>
+      <input type="text" id="roomNo" name="roomNo" required />
+
+      <label for="roomType">Room Type:</label>
+      <select id="roomType" name="roomType" required>
+        <option value="">Select Type</option>
+        <option value="VIP">VIP</option>
+        <option value="AC">AC</option>
+        <option value="Non AC &Double">Non AC &Double</option>
+        <option value="Non AC & Single">Non AC & Single</option>
+      </select>
+
+      <label for="rent">Rent (Tk):</label>
+      <input type="number" id="rent" name="rent" step="0.01" required />
+
+      <label for="status">Room Status:</label>
+      <select id="status" name="status" required>
+        <option value="Available">Available</option>
+        <option value="Booked">Booked</option>
+        <option value="Under Maintenance">Under Maintenance</option>
+      </select>
+
+      <button type="submit">Add Room</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#roomForm").on("submit", function (e) {
+        e.preventDefault();
+
+        $.ajax({
+          type: "POST",
+          url: "rooms.php",
+          data: $(this).serialize(),
+          success: function (response) {
+            $("#message").html('<p style="color:green;">' + response + "</p>");
+            $("#roomForm")[0].reset();
+          },
+          error: function () {
+            $("#message").html(
+              '<p style="color:red;">Something went wrong.</p>'
+            );
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/* Container */
+h2 {
+  margin-top: 20px;
+  color: #333;
+}
+
+/* Form Styles */
+form {
+  width: 40%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Labels */
+label {
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Spread the buttons to opposite ends */
+  align-items: center; /* Vertically align buttons */
+  margin-top: 10px;
+  padding: 0 10px; /* Adds some spacing around the buttons */
+}
+
+/* Buttons */
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Submit Button */
+#submitButton {
+  background-color: #0e0234;
+}
+
+#submitButton:hover {
+  background-color: #06d8ef;
+}
+
+/* Responsive Design */

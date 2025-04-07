@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Profile</title>
+    <link rel="stylesheet" href="bookingStyle.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#profileForm").submit(function (event) {
+          event.preventDefault(); // Prevent default submission
+
+          let formData = $(this).serialize();
+
+          $.ajax({
+            url: "teacherForm.php",
+            type: "POST",
+            data: formData,
+            success: function (response) {
+              $("#message").html(response).css("color", "green");
+              $("#profileForm")[0].reset(); // Reset form after submission
+            },
+            error: function () {
+              $("#message").html("An error occurred!").css("color", "red");
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>Booking Form</h2>
+
+    <form id="bookingForm">
+      <label for="room">Room No:</label>
+      <input type="text" id="room" name="room" required />
+
+      <label for="check-in">Check_in_date:</label>
+      <input type="date" id="check-in" name="check-in" required />
+
+      <label for="check-out">Check_out_date:</label>
+      <input type="date" id="check-out" name="check-out" required />
+
+      <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <p id="message"></p>
+  </body>
+</html>

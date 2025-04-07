@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guest Registration - Khulna University Guest House</title>
+    <link rel="stylesheet" href="guest_register.css" />
+    <!-- Load jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="Logo" />
+        <h1>Khulna University Guest House</h1>
+      </div>
+      <div class="menu-icon" id="menu-icon">
+        <span>&#9776;</span>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav id="navbar">
+        <ul>
+          <li>
+            <a href="index.php" class="nav-link" data-page="home">Home</a>
+          </li>
+          <li>
+            <a href="about.php" class="nav-link" data-page="about">About</a>
+          </li>
+          <li>
+            <a href="rooms.php" class="nav-link" data-page="rooms">Rooms</a>
+          </li>
+          <li>
+            <a href="feedback.php" class="nav-link" data-page="feedback"
+              >Feedback</a
+            >
+          </li>
+          <li>
+            <a href="login.php" class="nav-link" data-page="login">Login</a>
+          </li>
+          <li>
+            <a
+              href="guest_register.php"
+              class="nav-link"
+              data-page="guest-register"
+              >Guest Register</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="form-container">
+      <h2>Guest Registration</h2>
+      <form id="guestForm">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="phone" placeholder="Phone Number" required />
+        <textarea name="address" placeholder="Address" required></textarea>
+        <div class="button-group">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+      <div id="message"></div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Khulna University Guest House. All rights reserved.</p>
+    </footer>
+
+    <!-- Load your custom script after jQuery -->
+    <script src="guest_register.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#guestForm").submit(function (event) {
+          event.preventDefault(); // Prevent page refresh
+
+          let formData = {
+            name: $("input[name='name']").val().trim(),
+            email: $("input[name='email']").val().trim(),
+            phone: $("input[name='phone']").val().trim(),
+            address: $("textarea[name='address']").val().trim(),
+          };
+
+          // AJAX Request
+          $.ajax({
+            url: "guest_register.php", // Calls the PHP file
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            success: function (response) {
+              if (response.status === "success") {
+                $("#message").html(
+                  "<p class='success'>" + response.message + "</p>"
+                );
+                $("#guestForm")[0].reset(); // Reset form
+              } else {
+                $("#message").html(
+                  "<p class='error'>" + response.message + "</p>"
+                );
+              }
+            },
+            error: function () {
+              $("#message").html(
+                "<p class='error'>An error occurred. Please try again.</p>"
+              );
+            },
+          });
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

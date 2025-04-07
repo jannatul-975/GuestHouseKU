@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Application Form</title>
+    <link rel="stylesheet" href="teacher.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav id="sidebar" class="bg-dark text-white p-3">
+      <h4 class="text-center">Khulna University</h4>
+      <ul class="nav flex-column">
+        <li id="nav-id"><a>Dashboard</a></li>
+        <li class="nav-item">
+          <a href="applicationform.php" class="nav-link">Send Application</a>
+        </li>
+        <li class="nav-item">
+          <a href="status.php" class="nav-link">Status</a>
+        </li>
+        <li class="nav-item">
+          <a href="booking_myself.php" class="nav-link">Booking Myself</a>
+        </li>
+        <li class="nav-item">
+          <a href="booking_guest.php" class="nav-link">Booking for Guest</a>
+        </li>
+        <li class="nav-item">
+          <a href="booking_history.php" class="nav-link">Booking History</a>
+        </li>
+        <li class="nav-item">
+          <a href="payment_history.php" class="nav-link">Payment History</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="content" class="p-4">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div
+          class="container-fluid d-flex justify-content-between align-items-center"
+        >
+          <div class="navbar-text">
+            Welcome,
+            <span id="teacher-name"><?php echo $teacher['name']; ?></span>!
+          </div>
+          <div class="dropdown">
+            <img
+              src="profile_pics/<?php echo $teacher['profile_pic'] ?: 'profile.jpg'; ?>"
+              class="rounded-circle"
+              width="40"
+              height="40"
+              id="profile-btn"
+              data-bs-toggle="dropdown"
+            />
+            <ul class="dropdown-menu dropdown-menu-end" id="view-profile">
+              <li>
+                <a class="dropdown-item" href="teacherProfile.php">Profile</a>
+              </li>
+              <li><a class="dropdown-item" href="login.php">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mt-4">
+        <h3>Send Application for Room Booking</h3>
+        <form action="applicationform.php" method="POST">
+          <div class="form-group mt-3">
+            <label for="booking_type">Booking Type</label>
+            <select
+              id="booking_type"
+              name="booking_type"
+              class="form-control"
+              required
+            >
+              <option value="myself">For Myself</option>
+              <option value="guest">For Guest</option>
+            </select>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="room">Room Selection</label>
+            <select id="room" name="room" class="form-control" required>
+              <?php while ($room = $rooms_result->fetch_assoc()): ?>
+              <option value="<?php echo $room['RoomNo']; ?>">
+                <?php echo $room['RoomNo']; ?>
+                (<?php echo $room['room_type']; ?>)
+              </option>
+              <?php endwhile; ?>
+            </select>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="checkin_date">Check-in Date</label>
+            <input
+              type="date"
+              id="checkin_date"
+              name="checkin_date"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="checkout_date">Check-out Date</label>
+            <input
+              type="date"
+              id="checkout_date"
+              name="checkout_date"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group mt-3" id="guest_info" style="display: none">
+            <label for="guest_name">Guest Name</label>
+            <input
+              type="text"
+              id="guest_name"
+              name="guest_name"
+              class="form-control"
+              placeholder="Enter guest name"
+            />
+          </div>
+
+          <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary">
+              Submit Application
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Toggle guest info
+      document
+        .getElementById("booking_type")
+        .addEventListener("change", function () {
+          const guestDiv = document.getElementById("guest_info");
+          guestDiv.style.display = this.value === "guest" ? "block" : "none";
+        });
+    </script>
+  </body>
+</html>

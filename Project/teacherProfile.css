@@ -1,0 +1,352 @@
+/* Basic Layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+/* Sidebar Design */
+#sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #343a40;
+  padding-top: 20px;
+  list-style: none; /* Removes the list decoration from sidebar */
+}
+
+#sidebar h4 {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+#nav-id {
+  background-color: #007bff; /* Set the background color */
+  color: white; /* Set the text color */
+  padding: 12px 20px; /* Add padding */
+  font-size: 16px; /* Adjust the font size */
+  text-align: center; /* Center the text */
+  cursor: pointer; /* Change the cursor on hover */
+  border-radius: 5px; /* Optional: round the corners */
+}
+
+/* Remove list decoration for sidebar items */
+#sidebar .nav-link,
+#sidebar .nav-item span {
+  color: white;
+  padding: 12px 20px;
+  display: block;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#sidebar .nav-link:hover {
+  background-color: #495057;
+}
+
+#sidebar .nav-item span {
+  background-color: #495057;
+  cursor: not-allowed;
+}
+
+/* Remove list style from sidebar nav items */
+#sidebar .nav {
+  list-style: none; /* Removes bullets or numbering */
+  padding: 0;
+  margin: 0;
+}
+
+/* Main Content */
+#content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 20px;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 2px solid #dee2e6;
+  padding: 10px 20px;
+}
+
+/* Flexbox for Navbar */
+.container-fluid {
+  display: flex;
+  justify-content: space-between; /* Aligns the text and image on opposite sides */
+  align-items: center; /* Vertically centers the text and profile image */
+}
+
+.navbar-text {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Profile Picture */
+.dropdown img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Profile Dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  display: none;
+  width: 100px;
+  padding: 0;
+  list-style: none; /* Remove list style */
+}
+
+.dropdown-menu a {
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+}
+
+/* Showing the dropdown */
+.show-dropdown {
+  display: block;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Profile Information Section */
+.profile-info-section {
+  margin-top: 0px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.profile-info-section h3 {
+  color: #007bff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Profile Picture Section (Below Edit Profile) */
+.profile-picture-section {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Stack profile picture and button vertically */
+  align-items: flex-start; /* Align everything to the left */
+}
+
+#profile-img {
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+}
+
+/* Change Photo Button */
+.change-photo-btn {
+  padding: 8px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  width: auto;
+  margin-top: 10px; /* Adds space between profile image and button */
+}
+
+.change-photo-btn:hover {
+  background-color: #218838;
+}
+
+/* Profile Form */
+form {
+  margin-top: 40px;
+}
+
+/* Form Label */
+.form-label {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Form Input Fields */
+.form-control {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Update Button */
+.btn-success {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 0px;
+  margin-left: 200px;
+  float: left;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Button alignment for Update Profile */
+.d-flex.justify-content-end {
+  margin-top: 0px;
+}
+
+/* Email Field - Read-only Styling */
+input[readonly] {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+  border-color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Sidebar */
+  #sidebar {
+    width: 200px;
+  }
+
+  #content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 10px;
+  }
+
+  /* Profile Picture */
+  .dropdown img {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* Profile Information Section */
+  .profile-info-section h3 {
+    font-size: 20px;
+  }
+
+  /* Profile Picture Section */
+  #profile-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Form Input Fields */
+  .form-control {
+    font-size: 14px;
+  }
+
+  /* Update Button */
+  .btn-success {
+    padding: 8px 16px;
+  }
+
+  .d-flex.justify-content-end {
+    margin-top: 10px;
+  }
+
+  /* Adjust button sizes for mobile view */
+  .change-photo-btn,
+  .btn-success {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+  /* Sidebar */
+  #sidebar {
+    width: 100%;
+    position: relative;
+  }
+
+  #content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Navbar */
+  .container-fluid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-text {
+    margin-top: 10px;
+  }
+
+  /* Profile Picture */
+  .dropdown img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Profile Picture Section */
+  #profile-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Form */
+  form {
+    margin-top: 20px;
+  }
+
+  /* Form Fields */
+  .form-control {
+    font-size: 14px;
+  }
+
+  .btn-success {
+    padding: 8px 16px;
+  }
+}

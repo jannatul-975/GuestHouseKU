@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="teacherProfile.css" />
+    {{!-- <link rel="stylesheet" href="teacher.css" /> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav id="sidebar" class="bg-dark text-white p-3">
+      <h4 class="text-center">Khulna University</h4>
+      <ul class="nav flex-column">
+        <li id="nav-id">
+          <a >Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Send Application</a>
+        </li>
+        <a href="#" class="nav-link">Status</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Booking for Myself</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Booking for Guest</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Booking History</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Payment History</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="content" class="p-4">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <div class="navbar-text">
+            Welcome, <span id="teacher-name">Teacher</span>!
+          </div>
+          <div class="dropdown">
+            <img
+              src="profile.jpg"
+              class="rounded-circle"
+              width="40"
+              height="40"
+              id="profile-btn"
+              data-bs-toggle="dropdown"
+            />
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="teacherProfile.html" id="view-profile">Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="login.html" id="logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mt-4">
+        <div class="profile-info-section">
+          <h3>Edit Profile</h3>
+        </div>
+
+        <!-- Profile Picture Section -->
+        <div class="d-flex flex-column align-items-center mb-4">
+          <img id="profile-img" src="profile.jpg" class="rounded-circle" width="100" height="100" />
+          <h3>name</h3>
+        <div>
+            <button class="btn btn-primary mt-3" onclick="changePhoto()">Change Photo</button>
+        </div>
+        <!-- Profile Information Form -->
+        <form id="profile-form">
+          <div class="row mb-3">
+            <div class="col-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" class="form-control" value="John Doe" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" value="johndoe@example.com" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-3">
+              <label for="phone" class="form-label">Phone No</label>
+              <input type="text" id="phone" class="form-control" value="+1234567890" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" placeholder="Leave blank to keep unchanged" />
+            </div>
+          </div>
+
+          <!-- Update Button at Bottom Right -->
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-success">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="teacher.js"></script>
+  </body>
+</html>

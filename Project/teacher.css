@@ -1,0 +1,222 @@
+/* Basic Layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Sidebar Design */
+#sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #343a40;
+  padding-top: 20px;
+  list-style: none;
+}
+
+#sidebar h4 {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+#nav-id {
+  background-color: #ff6500;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Sidebar Navigation Items */
+#sidebar .nav-link,
+#sidebar .nav-item span {
+  color: white;
+  padding: 12px 20px;
+  display: block;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#sidebar .nav-link:hover {
+  background-color: #495057;
+}
+
+#sidebar .nav-item span {
+  background-color: #495057;
+  cursor: not-allowed;
+}
+
+#sidebar .nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main Content */
+#content {
+  margin-left: 250px;
+  width: calc(100% - 260px); /* Slightly reduced for better layout */
+  padding: 20px;
+  max-width: 1100px; /* Limit max width for wide screens */
+  box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* Navbar Flexbox */
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+}
+
+/* Welcome Text */
+.navbar-text {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Profile Picture */
+.dropdown img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  display: none;
+  width: 100px;
+  padding: 0;
+  list-style: none;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+}
+
+/* Show Dropdown */
+.show-dropdown {
+  display: block;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Sitemap Box */
+.sitemap-box {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.sitemap-box ol {
+  padding-left: 20px;
+  list-style: decimal;
+}
+
+.sitemap-box a {
+  color: yellow;
+  text-decoration: none;
+}
+
+.sitemap-box a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------ Responsive Design ------------------ */
+
+/* Tablet View */
+@media screen and (max-width: 991px) {
+  #content {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  #sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .container-fluid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dropdown-menu {
+    top: 45px;
+    right: 10px;
+  }
+}
+
+/* Mobile View */
+@media screen and (max-width: 576px) {
+  .navbar-text {
+    font-size: 16px;
+  }
+
+  .dropdown img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .dropdown-menu {
+    width: 100px;
+    right: 5px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #nav-id {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
